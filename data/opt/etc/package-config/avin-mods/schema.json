@@ -5,80 +5,80 @@
             "widget": "select",
             "options": [
                 {
-                    "key": "Autodetect (default)",
-                    "value": "0001"
+                    "value": "Autodetect (default)",
+                    "key": "0001"
                 },
                 {
-                    "key": "NTSC",
-                    "value": "0101"
+                    "value": "NTSC",
+                    "key": "0101"
                 },
                 {
-                    "key": "PAL",
-                    "value": "1000"
+                    "value": "PAL",
+                    "key": "1000"
                 },
                 {
-                    "key": "==== ADVANCED ====",
-                    "value": "0001"
+                    "value": "==== ADVANCED ====",
+                    "key": "0001"
                 },
                 {
-                    "key": "Autodetect - PAL B/G/H/I/D, NTSC M (pedestal), SECAM",
-                    "value": "0001"
+                    "value": "Autodetect - PAL B/G/H/I/D, NTSC M (pedestal), SECAM",
+                    "key": "0001"
                 },
                 {
-                    "key": "Autodetect - PAL N (pedestal), NTSC J (no pedestal), SECAM",
-                    "value": "0010"
+                    "value": "Autodetect - PAL N (pedestal), NTSC J (no pedestal), SECAM",
+                    "key": "0010"
                 },
                 {
-                    "key": "Autodetect - PAL N (pedestal), NTSC M (pedestal) SECAM",
-                    "value": "0011"
+                    "value": "Autodetect - PAL N (pedestal), NTSC M (pedestal) SECAM",
+                    "key": "0011"
                 },
                 {
-                    "key": "NTSC J",
-                    "value": "0100"
+                    "value": "NTSC J",
+                    "key": "0100"
                 },
                 {
-                    "key": "NTSC M",
-                    "value": "0101"
+                    "value": "NTSC M",
+                    "key": "0101"
                 },
                 {
-                    "key": "PAL 60",
-                    "value": "0110"
+                    "value": "PAL 60",
+                    "key": "0110"
                 },
                 {
-                    "key": "NSTC 4.43",
-                    "value": "0111"
+                    "value": "NSTC 4.43",
+                    "key": "0111"
                 },
                 {
-                    "key": "PAL B/G/H/I/D",
-                    "value": "1000"
+                    "value": "PAL B/G/H/I/D",
+                    "key": "1000"
                 },
                 {
-                    "key": "PAL N = PAL B/G/H/I/D (with pedestal)",
-                    "value": "1001"
+                    "value": "PAL N = PAL B/G/H/I/D (with pedestal)",
+                    "key": "1001"
                 },
                 {
-                    "key": "PAL M (without pedestal)",
-                    "value": "1010"
+                    "value": "PAL M (without pedestal)",
+                    "key": "1010"
                 },
                 {
-                    "key": "PAL M",
-                    "value": "1011"
+                    "value": "PAL M",
+                    "key": "1011"
                 },
                 {
-                    "key": "PAL Combination N",
-                    "value": "1100"
+                    "value": "PAL Combination N",
+                    "key": "1100"
                 },
                 {
-                    "key": "PAL Combination N (with pedestal)",
-                    "value": "1101"
+                    "value": "PAL Combination N (with pedestal)",
+                    "key": "1101"
                 },
                 {
-                    "key": "SECAM - 1",
-                    "value": "1110"
+                    "value": "SECAM - 1",
+                    "key": "1110"
                 },
                 {
-                    "key": "SECAM - 2",
-                    "value": "1111"
+                    "value": "SECAM - 2",
+                    "key": "1111"
                 }
             ]
         },
