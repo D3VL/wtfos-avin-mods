@@ -1,0 +1,89 @@
+{
+    "settings": {
+        "encoding": {
+            "name": "Encoding",
+            "widget": "Select AV In Encoding",
+            "options": [
+                {
+                    "name": "Autodetect (default)",
+                    "value": "0001"
+                },
+                {
+                    "name": "NTSC",
+                    "value": "0101"
+                },
+                {
+                    "name": "PAL",
+                    "value": "1000"
+                },
+                {
+                    "name": "==== ADVANCED ====",
+                    "value": "0001"
+                },
+                {
+                    "key": "Autodetect - PAL B/G/H/I/D, NTSC M (pedestal), SECAM",
+                    "value": "0001"
+                },
+                {
+                    "key": "Autodetect - PAL N (pedestal), NTSC J (no pedestal), SECAM",
+                    "value": "0010"
+                },
+                {
+                    "key": "Autodetect - PAL N (pedestal), NTSC M (pedestal) SECAM",
+                    "value": "0011"
+                },
+                {
+                    "key": "NTSC J",
+                    "value": "0100"
+                },
+                {
+                    "key": "NTSC M",
+                    "value": "0101"
+                },
+                {
+                    "key": "PAL 60",
+                    "value": "0110"
+                },
+                {
+                    "key": "NSTC 4.43",
+                    "value": "0111"
+                },
+                {
+                    "key": "PAL B/G/H/I/D",
+                    "value": "1000"
+                },
+                {
+                    "key": "PAL N = PAL B/G/H/I/D (with pedestal)",
+                    "value": "1001"
+                },
+                {
+                    "key": "PAL M (without pedestal)",
+                    "value": "1010"
+                },
+                {
+                    "key": "PAL M",
+                    "value": "1011"
+                },
+                {
+                    "key": "PAL Combination N",
+                    "value": "1100"
+                },
+                {
+                    "key": "PAL Combination N (with pedestal)",
+                    "value": "1101"
+                },
+                {
+                    "key": "SECAM - 1",
+                    "value": "1110"
+                },
+                {
+                    "key": "SECAM - 2",
+                    "value": "1111"
+                }
+            ]
+        }
+    },
+    "services": [
+        "wtfos-avin-mods"
+    ]
+}

@@ -1,0 +1,7 @@
+Package: avin-mods
+Version: 1.0.0
+Maintainer: D3VL LTD <jack@d3vl.com>
+Description: Exposes configuration options for AV Input; Set PAL/NTSC and more! 
+Architecture: pigeon-glasses
+Homepage: https://github.com/d3vl/wtfos-avin-mods
+Depends: dinit, wtfos-package-config
