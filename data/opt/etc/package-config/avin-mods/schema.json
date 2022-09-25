@@ -83,11 +83,11 @@
             ]
         },
         "disable-free-run": {
-            "name": "Disable Free Run",
+            "name": "Disable Blue Screen",
             "widget": "checkbox"
         }
     },
-    "services": [
-        "wtfos-avin-mods"
+    "units": [
+        "avin-mods"
     ]
 }
