@@ -7,7 +7,7 @@ all:
 
 	chmod +x ./control/postinst
 	chmod +x ./control/prerm
-	chmod +x ./data/opt/bin/wtfos-avin-mods.sh
+	chmod +x ./data/opt/bin/avin-mods.sh
 
 	mkdir -p ipk
 	echo "2.0" > ipk/debian-binary

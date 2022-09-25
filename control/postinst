@@ -1,3 +1,3 @@
 #!/system/bin/sh
 
-/opt/sbin/dinitctl enable wtfos-avin-mods || true
+/opt/sbin/dinitctl enable avin-mods || true

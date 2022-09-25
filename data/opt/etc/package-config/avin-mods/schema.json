@@ -2,22 +2,22 @@
     "settings": {
         "encoding": {
             "name": "Encoding",
-            "widget": "Select AV In Encoding",
+            "widget": "select",
             "options": [
                 {
-                    "name": "Autodetect (default)",
+                    "key": "Autodetect (default)",
                     "value": "0001"
                 },
                 {
-                    "name": "NTSC",
+                    "key": "NTSC",
                     "value": "0101"
                 },
                 {
-                    "name": "PAL",
+                    "key": "PAL",
                     "value": "1000"
                 },
                 {
-                    "name": "==== ADVANCED ====",
+                    "key": "==== ADVANCED ====",
                     "value": "0001"
                 },
                 {
@@ -81,6 +81,10 @@
                     "value": "1111"
                 }
             ]
+        },
+        "disable-free-run": {
+            "name": "Disable Free Run",
+            "widget": "checkbox"
         }
     },
     "services": [
