@@ -1,2 +1,2 @@
-type = process
+type = scripted
 command = /opt/bin/avin-mods.sh
