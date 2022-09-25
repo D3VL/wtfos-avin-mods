@@ -1,0 +1,2 @@
+type = process
+command = /opt/bin/avin-mods.sh
