@@ -31,7 +31,7 @@ function writeToRegister {
 }
 
 # Get the values from the config 
-ENCODING_BIN=$(package-config getsaved wtfos-avin-mods encoding)
+ENCODING_BIN=$(package-config getsaved avin-mods encoding)
 ENCODING_BIN+="0100" # default bits from documentation
 
 ENCODING_INT=$((2#$ENCODING_BIN))
@@ -53,7 +53,7 @@ else
 fi
 
 
-DISABLE_FREE_RUN=$(package-config getsaved wtfos-avin-mods disable-free-run)
+DISABLE_FREE_RUN=$(package-config getsaved avin-mods disable-free-run)
 
 if [ $DISABLE_FREE_RUN == "true" ]; then    
     echo "[avin-mods] disabling free run mode";
