@@ -6,15 +6,15 @@
             "options": [
                 {
                     "value": "Autodetect (default)",
-                    "key": "0001"
+                    "key": "AUTO"
                 },
                 {
                     "value": "NTSC",
-                    "key": "0101"
+                    "key": "NTSC"
                 },
                 {
                     "value": "PAL",
-                    "key": "1000"
+                    "key": "PAL"
                 },
                 {
                     "value": "==== ADVANCED ====",
