@@ -55,9 +55,9 @@ function writeToRegister {
     busybox devmem $memloc_address 8 $address && 
     busybox devmem $memloc_value 8 $value
 
-    memloc_map=$(($memloc_map + 4))
-    memloc_address=$(($memloc_address + 4))
-    memloc_value=$(($memloc_value + 4))
+    memloc_map=$(($memloc_map + 12))
+    memloc_address=$(($memloc_address + 12))
+    memloc_value=$(($memloc_value + 12))
 }
 
 # Get the values from the config 
