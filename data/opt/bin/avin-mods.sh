@@ -18,11 +18,28 @@ while [ $found_end_of_table -eq 0 ]; do
         found_end_of_table=1
         echo "[avin-mods] found end of table at $memloc_map";
     else
-        memloc_map=$(($memloc_map + 4))
-        memloc_address=$(($memloc_address + 4))
-        memloc_value=$(($memloc_value + 4))
+        memloc_map=$(($memloc_map + 12))
+        memloc_address=$(($memloc_address + 12))
+        memloc_value=$(($memloc_value + 12))
     fi
 done
+
+# Used for dumping back the values
+function scanDown {
+    tmemloc_map=270595112 # 0x1020f428
+    tmemloc_address=270595116 # 0x1020f42c
+    tmemloc_value=270595120 # 0x1020f430
+    tfound_end_of_table=0
+    while [ $tfound_end_of_table -eq 0 ]; do
+        echo "$tmemloc_map -> $(busybox devmem $tmemloc_map 8) $(busybox devmem $tmemloc_address 8) $(busybox devmem $tmemloc_value 8)";
+        tmemloc_map=$(($tmemloc_map + 12))
+        tmemloc_address=$(($tmemloc_address + 12))
+        tmemloc_value=$(($tmemloc_value + 12))
+        if [ $(busybox devmem $tmemloc_map 8) == "0x00" ]; then
+            tfound_end_of_table=1
+        fi
+    done
+}
 
 function writeToRegister {
     map=$1
