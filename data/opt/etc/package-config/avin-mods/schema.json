@@ -5,19 +5,19 @@
             "widget": "select",
             "options": [
                 {
-                    "name": "OFF",
+                    "key": "OFF",
                     "value": "OFF"
                 },
                 {
-                    "name": "PAL",
+                    "key": "PAL",
                     "value": "PAL"
                 },
                 {
-                    "name": "NTSC",
+                    "key": "NTSC",
                     "value": "NTSC"
                 },
                 {
-                    "name": "ADVANCED",
+                    "key": "ADVANCED",
                     "value": "ADVANCED"
                 }
             ]
