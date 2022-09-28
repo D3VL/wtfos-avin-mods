@@ -1,4 +1,5 @@
 {
-  "encoding": "0001",
+  "encoding": "OFF",
+  "encoding-advanced": "OFF",
   "disable-free-run": false
 }

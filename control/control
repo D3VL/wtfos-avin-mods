@@ -1,5 +1,5 @@
 Package: avin-mods
-Version: 1.0.0
+Version: 1.0.1
 Maintainer: D3VL LTD <jack@d3vl.com>
 Description: Exposes configuration options for AV Input; Set PAL/NTSC and more! 
 Architecture: pigeon-glasses
