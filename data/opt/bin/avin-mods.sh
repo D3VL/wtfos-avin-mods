@@ -69,15 +69,15 @@ function backgroundPalLoop {
 
     # wait for avin to be enabled
     while [ $(busybox devmem 0x10e2af14 8) == "0x00" ]; do
-        busybox sleep 10;
+        busybox sleep 20;
     done
 
     echo "[avin-mods] avin enabled, disabling screen resize";
-    writeToRegister $map_main 0x0f 0x00
+    busybox devmem 0xfffc10fb 8 0x00
 
     # wait for avin to be disabled
     while [ $(busybox devmem 0x10e2af14 8) == "0x01" ]; do
-        busybox sleep 60;
+        busybox sleep 5;
     done
 
     echo "[avin-mods] avin disabled, restarting check loop";
@@ -96,21 +96,21 @@ if [ "$ENCODING" == "PAL" ]; then
     # start waiting for avin to be enabled in the background
     backgroundPalLoop &
 
-else if [ "$ENCODING" == "NTSC" ] then;
+elif [ "$ENCODING" == "NTSC" ]; then
     writeToRegister 0x21 0x07 0x00; # disable auto encoding
 fi
 
 # Get the values from the config 
 ENCODINGADV_BIN=$(package-config getsaved avin-mods encoding-advanced)
-ENCODINGADV_BIN+="0100" # default bits from documentation
 
-ENCODINGADV_INT=$((2#$ENCODINGADV_BIN))
-
-echo "[avin-mods] setting encoding to $ENCODINGADV_INT ($ENCODINGADV_BIN)";
-
-if [ "$ENCODINGADV_BIN" != "OFF0100" ]; then
+if [ "$ENCODINGADV_BIN" != "OFF" ]; then
     # disable auto encoding detection
     writeToRegister 0x21 0x07 0x00;
+
+    ENCODINGADV_BIN+="0100" # default bits from documentation
+    ENCODINGADV_INT=$((2#$ENCODINGADV_BIN))
+
+    echo "[avin-mods] setting encoding to $ENCODINGADV_INT ($ENCODINGADV_BIN)";
 
     # set the encoding
     writeToRegister 0x21 0x02 $ENCODINGADV_INT;
