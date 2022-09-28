@@ -55,46 +55,78 @@ function writeToRegister {
     busybox devmem $memloc_address 8 $address && 
     busybox devmem $memloc_value 8 $value
 
-    memloc_map=$(($memloc_map + 12))
-    memloc_address=$(($memloc_address + 12))
-    memloc_value=$(($memloc_value + 12))
+    # if the write was successful, and we're not at the end of the table, move the pointers
+    if [ $map != "0x00" ]; then
+        memloc_map=$(($memloc_map + 12))
+        memloc_address=$(($memloc_address + 12))
+        memloc_value=$(($memloc_value + 12))
+    fi
 }
 
+function backgroundPalLoop {
+
+    echo "[avin-mods] Waiting for avin to be enabled";
+
+    # wait for avin to be enabled
+    while [ $(busybox devmem 0x10e2af14 8) == "0x00" ]; do
+        busybox sleep 10;
+    done
+
+    echo "[avin-mods] avin enabled, disabling screen resize";
+    writeToRegister $map_main 0x0f 0x00
+
+    # wait for avin to be disabled
+    while [ $(busybox devmem 0x10e2af14 8) == "0x01" ]; do
+        busybox sleep 60;
+    done
+
+    echo "[avin-mods] avin disabled, restarting check loop";
+
+    backgroundPalLoop;
+
+}
+
+ENCODING=$(package-config getsaved avin-mods encoding)
+
+if [ "$ENCODING" == "PAL" ]; then 
+    # loop and wait for avin to be enabled
+
+    echo "[avin-mods] PAL selected";
+    
+    # start waiting for avin to be enabled in the background
+    backgroundPalLoop &
+
+else if [ "$ENCODING" == "NTSC" ] then;
+    writeToRegister 0x21 0x07 0x00; # disable auto encoding
+fi
+
 # Get the values from the config 
-ENCODING_BIN=$(package-config getsaved avin-mods encoding)
-ENCODING_BIN+="0100" # default bits from documentation
+ENCODINGADV_BIN=$(package-config getsaved avin-mods encoding-advanced)
+ENCODINGADV_BIN+="0100" # default bits from documentation
 
-[ "$ENCODING_BIN" = "PAL0100" ] && ENCODING_BIN="10000100"
-[ "$ENCODING_BIN" = "NTSC0100" ] && ENCODING_BIN="01010100"
-[ "$ENCODING_BIN" = "AUTO0100" ] && ENCODING_BIN="00010100"
+ENCODINGADV_INT=$((2#$ENCODINGADV_BIN))
 
-ENCODING_INT=$((2#$ENCODING_BIN))
+echo "[avin-mods] setting encoding to $ENCODINGADV_INT ($ENCODINGADV_BIN)";
 
-echo "[avin-mods] setting encoding to $ENCODING_INT ($ENCODING_BIN)";
-
-if [ $ENCODING_BIN != "00010100" ]; then
+if [ "$ENCODINGADV_BIN" != "OFF0100" ]; then
     # disable auto encoding detection
     writeToRegister 0x21 0x07 0x00;
 
     # set the encoding
-    writeToRegister 0x21 0x02 $ENCODING_INT;
-else 
-    # enable auto encoding detection
-    writeToRegister 0x21 0x07 0x01;
-
-    # set the encoding to auto
-    writeToRegister 0x21 0x02 $ENCODING_INT;
+    writeToRegister 0x21 0x02 $ENCODINGADV_INT;
 fi
-
 
 # Get the values from the config 
 DISABLE_FREE_RUN=$(package-config getsaved avin-mods disable-free-run)
 
-if [ $DISABLE_FREE_RUN == "true" ]; then    
+if [ "$DISABLE_FREE_RUN" == "true" ]; then    
     echo "[avin-mods] disabling free run mode";
     # disable free run mode
-    writeToRegister 0x21 0x0C 0x34;
+    writeToRegister 0x21 0x0C 0x00;
 fi
+
+# Write a 0x00 to the end of the table to make sure the table is terminated
+writeToRegister 0x00 0x00 0x00;
 
 echo "[avin-mods] completed!";
 

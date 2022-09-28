@@ -1,24 +1,38 @@
 {
     "settings": {
         "encoding": {
-            "name": "Encoding",
+            "name": "Encoding Options",
             "widget": "select",
             "options": [
                 {
-                    "value": "Autodetect (default)",
-                    "key": "AUTO"
+                    "name": "OFF",
+                    "value": "OFF"
                 },
                 {
-                    "value": "NTSC",
-                    "key": "NTSC"
+                    "name": "PAL",
+                    "value": "PAL"
                 },
                 {
-                    "value": "PAL",
-                    "key": "PAL"
+                    "name": "NTSC",
+                    "value": "NTSC"
                 },
                 {
-                    "value": "==== ADVANCED ====",
-                    "key": "0001"
+                    "name": "ADVANCED",
+                    "value": "ADVANCED"
+                }
+            ]
+        },
+        "disable-free-run": {
+            "name": "Disable Blue Screen",
+            "widget": "checkbox"
+        },
+        "encoding-advanced": {
+            "name": "Advanced Encoding Options",
+            "widget": "select",
+            "options": [
+                {
+                    "value": "OFF",
+                    "key": "OFF"
                 },
                 {
                     "value": "Autodetect - PAL B/G/H/I/D, NTSC M (pedestal), SECAM",
@@ -81,10 +95,6 @@
                     "key": "1111"
                 }
             ]
-        },
-        "disable-free-run": {
-            "name": "Disable Blue Screen",
-            "widget": "checkbox"
         }
     },
     "units": [
