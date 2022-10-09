@@ -1,0 +1,86 @@
+{
+    "title": "AV-IN Mods Settings",
+    "type": "object",
+    "properties": {
+        "encoding": {
+            "type": "string",
+            "enum": [
+                "OFF",
+                "PAL",
+                "NTSC",
+                "ADVANCED"
+            ],
+            "enumNames": [
+                "AUTOMATIC",
+                "PAL",
+                "NTSC",
+                "ADVANCED"
+            ],
+            "default": "OFF",
+            "title": "Encoding"
+        },
+        "disable-free-run": {
+            "type": "boolean",
+            "title": "Disable Blue Screen"
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "encoding": {
+                        "const": "ADVANCED"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "encoding-advanced": {
+                        "type": "string",
+                        "enum": [
+                            "OFF",
+                            "0001",
+                            "0010",
+                            "0011",
+                            "0100",
+                            "0101",
+                            "0110",
+                            "0111",
+                            "1000",
+                            "1001",
+                            "1010",
+                            "1011",
+                            "1100",
+                            "1101",
+                            "1110",
+                            "1111"
+                        ],
+                        "enumNames": [
+                            "OFF",
+                            "Autodetect - PAL B/G/H/I/D, NTSC M (pedestal), SECAM",
+                            "Autodetect - PAL N (pedestal), NTSC J (no pedestal), SECAM",
+                            "Autodetect - PAL N (pedestal), NTSC M (pedestal) SECAM",
+                            "NTSC J",
+                            "NTSC M",
+                            "PAL 60",
+                            "NSTC 4.43",
+                            "PAL B/G/H/I/D",
+                            "PAL N = PAL B/G/H/I/D (with pedestal)",
+                            "PAL M (without pedestal)",
+                            "PAL M",
+                            "PAL Combination N",
+                            "PAL Combination N (with pedestal)",
+                            "SECAM - 1",
+                            "SECAM - 2"
+                        ],
+                        "default": "OFF",
+                        "title": "Encoding Advanced"
+                    }
+                },
+                "required": [
+                    "encoding-advanced"
+                ]
+            }
+        }
+    ]
+}
